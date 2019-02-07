@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+        let students;
+       function getStudents (){      	
+	   
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET","product.json",false);
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		 students = JSON.parse(this.responseText);
+	  }
+	 
+	};
+	xmlhttp.send();
+  
+}
+    getStudents();
+    window.onload = function what(){
+   document.getElementById("lista-produse").innerHTML=JSON.stringify(students)
+};
+   
+    </script>
+    </head>
+    <body>
+        <div id="lista-produse" >Lista produse</div>
+    </body>
+    
+</html>
